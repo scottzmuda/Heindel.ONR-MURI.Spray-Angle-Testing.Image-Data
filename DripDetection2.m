@@ -5,8 +5,7 @@
 %filename= change file number
 %filepath= create filepath
 %image= read-in image
-startpath = '\\heindelfs1.me.iastate.edu\heindel\ONR MURI\Spray Angle
-Testing\Image Data\'; %designate startpath
+startpath = '\\heindelfs1.me.iastate.edu\heindel\ONR MURI\Spray Angle Testing\Image Data\'; %designate startpath
 folderpath = uigetdir(startpath); %select normalization folder
 n=500; %number of frames per normaliztion
 threshold=5200; %value below which indicated that pixel is part of
@@ -37,16 +36,13 @@ Error in DripDetection2 (line 21)
 image = imread(filepath); %read-in image
 %conditionsFile= fits line
 %User input variables
-conditionsFile = 'D:\RemoteUserDocuments\Desktop\1 Line Fits - BAD
-\Data-Norm Pairs, Ql=0.099, Prior Norm.txt'; %Note: MatLab likes
+conditionsFile = 'D:\RemoteUserDocuments\Desktop\1 Line Fits - BAD\Data-Norm Pairs, Ql=0.099, Prior Norm.txt'; %Note: MatLab likes
 single quotes better
 dataFolder = 'D:\RemoteUserDocuments\Desktop\1 Line Fits - BAD';
 outputFile = 'D:\RemoteUserDocuments\Desktop\TestOutputFile.txt';
 sps = 0:0.05:1;
 repeats = 5;
-1
-Pairs=fopen("Y:\ONR MURI\Spray Angle Testing\Data-Norm Pairs,
-Ql=0.099, Prior Norm.txt");
+Pairs=fopen("Y:\ONR MURI\Spray Angle Testing\Data-Norm Pairs, Ql=0.099, Prior Norm.txt");
 Extraction=extractBetween(Pairs,44,81);
 Data=strcat(Extraction, ', Data.txt');
 filepath="Y:\ONR MURI\Spray Angle Testing\1 Line Fits - BAD\";
@@ -84,8 +80,7 @@ end
 outFid = fopen(outputFile, 'w');
 for i=1:size(flowConditions, 1)
 file=fullfile(filepath,Data(i));
-xlswrite('Y:\ONR MURI\Spray Angle Testing\Zmuda_APSDFD_Analysis
-\APSDFDPresentationData.xlsx')
+xlswrite('Y:\ONR MURI\Spray Angle Testing\Zmuda_APSDFD_Analysis\APSDFDPresentationData.xlsx')
 %Tim wanted me to use csvwrite, but matlab highly suggests not to,
 %so for now I left it the same.
 %write out the section headers
@@ -101,8 +96,7 @@ for sp=sps
 fprintf(outFid, '%0.3f', sp);
 for test=1:repeats
 try
-fileName = sprintf('%s\\Ql=%0.3f, Qtot=%0.1f,
-SP=%0.3f, Test %d, Data.txt', dataFolder, flowConditions(i, 1),
+fileName = sprintf('%s\\Ql=%0.3f, Qtot=%0.1f, SP=%0.3f, Test %d, Data.txt', dataFolder, flowConditions(i, 1),
 flowConditions(i, 2), sp, test);
 dataFid = fopen(fileName);
 fgetl(dataFid);
